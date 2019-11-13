@@ -28,6 +28,14 @@ ul {
     color: white;
 }
 
+.dark {
+    padding: 15px;
+    background: #354242;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 /* Header */
 .header {
     background-color: #35424a;
@@ -127,6 +135,19 @@ header a:hover { /* hover changes font if point on it with mouce */
 
 #boxes .box img {
     width: 90px;
+}
+
+/* Sidebar */
+aside#sidebar {
+    float: right;
+    width: 30%;
+    margin-top: 10px;
+}
+
+/* Main-col */
+article#main-col {
+    float: left;
+    width: 65%;
 }
 
 footer {
