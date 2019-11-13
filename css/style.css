@@ -144,10 +144,24 @@ aside#sidebar {
     margin-top: 10px;
 }
 
+aside#sidebar .quote input {
+    width: 90px;
+    padding: 5px;
+}
+
 /* Main-col */
 article#main-col {
     float: left;
     width: 65%;
+}
+
+/* Services */
+ul#services li{
+    list-style: none;
+    padding: 20px;
+    border: #cccccc solid 1px;
+    margin-bottom: 5px;
+    background: #e6e6e6;
 }
 
 footer {
