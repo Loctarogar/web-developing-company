@@ -1,12 +1,50 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Affordable and professional websites with greate desine">
+    <meta name="keywords" content="web design, affordable web disibn, professional web design, professional web developing">
+    <meta name="author" content="Loctarogar">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Web developing | Welcome</title>
+</head>
+<body>
+    {% block header %}
+        <header class="header">
+            <div class="container">
+                <div id="branding">
+                    <h1><span class="highlight">Professional</span> Web Developing</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li class="current"><a href="index.html.twig">Home</a></li>
+                        <li><a href="about.html.twig">About</a></li>
+                        <li><a href="services.html.twig">Services</a></li>
+                        <li><a href="login.html.twig">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    {% endblock header %}
+
+    {% block section_showcase %}
+    {% endblock section_showcase %}
+
+    {% block section_newsletter %}
+    {% endblock section_newsletter %}
+
+    {% block section_main %}
+    {% endblock section_main %}
+
+    {% block section_boxes %}
+    {% endblock section_boxes %}
+
+    {% block footer %}
+        <footer class="footer">
+            <p>Professional Web Developing &copy; 2019</p>
+        </footer>
+    {% endblock footer %}
+</body>
 </html>
