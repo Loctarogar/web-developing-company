@@ -1,15 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'layouts/base.html.twig' %}
 
 {% block title %}Welcome{% endblock title %}
 
 {% block section_showcase %}
-    {% include 'layouts/index/section_showcase.html.twig' %}
+    {% include 'partials/index/section_showcase.html.twig' %}
 {% endblock section_showcase %}
 
 {% block section_newsletter %}
-    {% include 'layouts/index/section_newsletter.html.twig' %}
+    {% include 'partials/index/section_newsletter.html.twig' %}
 {% endblock section_newsletter %}
 
 {% block section_boxes %}
-    {% include 'layouts/index/section_boxes.html.twig' %}
+    {% include 'partials/index/section_boxes.html.twig' %}
 {% endblock section_boxes %}

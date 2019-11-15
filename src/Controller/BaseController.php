@@ -24,4 +24,8 @@ class BaseController extends AbstractController
     public function login() {
         return $this->render('login.html.twig');
     }
+
+    public function register() {
+        return $this->render('register.html.twig');
+    }
 }

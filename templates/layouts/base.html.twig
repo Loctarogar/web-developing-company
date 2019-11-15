@@ -23,6 +23,7 @@
                         <li {% if app.request.pathInfo == '/about' %} class="current" {% endif %}><a href="{{ path('base_about') }}">About</a></li>
                         <li {% if app.request.pathInfo == '/services' %} class="current" {% endif %}><a href="{{ path('base_services') }}">Services</a></li>
                         <li {% if app.request.pathInfo == '/login' %} class="current" {% endif %}><a href="{{ path('base_login') }}">Login</a></li>
+                        <li {% if app.request.pathInfo == '/register' %} class="current" {% endif %}><a href="{{ path('base_register') }}">Register</a></li>
                     </ul>
                 </nav>
             </div>

@@ -1,11 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'layouts/base.html.twig' %}
 
 {% block title %}About{% endblock title %}
 
 {% block section_newsletter %}
-    {% include 'layouts/index/section_newsletter.html.twig' %}
+    {% include 'partials/index/section_newsletter.html.twig' %}
 {% endblock section_newsletter %}
 
 {% block section_main %}
-    {% include 'layouts/about/section_main.html.twig' %}
+    {% include 'partials/about/section_main.html.twig' %}
 {% endblock section_main %}
