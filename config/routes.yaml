@@ -1,11 +1,24 @@
+app_login:
+  methods: [POST, GET]
+  path: /login
+  controller: App\Controller\SecurityController::login
+
+app_register:
+  path: /register
+  methods: [POST, GET]
+  controller: App\Controller\SecurityController::register
+
 base_index:
+  methods: GET
   path: /
   controller: App\Controller\BaseController::index
 
 base_about:
+  methods: GET
   path: /about
   controller: App\Controller\BaseController::about
 
 base_services:
+  methods: GET
   path: /services
   controller: App\Controller\BaseController::services

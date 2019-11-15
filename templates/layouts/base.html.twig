@@ -22,8 +22,13 @@
                         <li {% if app.request.pathInfo == '/' %} class="current" {% endif %}><a href="{{ path('base_index') }}">Home</a></li>
                         <li {% if app.request.pathInfo == '/about' %} class="current" {% endif %}><a href="{{ path('base_about') }}">About</a></li>
                         <li {% if app.request.pathInfo == '/services' %} class="current" {% endif %}><a href="{{ path('base_services') }}">Services</a></li>
-                        <li {% if app.request.pathInfo == '/login' %} class="current" {% endif %}><a href="{{ path('app_login') }}">Login</a></li>
-                        <li {% if app.request.pathInfo == '/register' %} class="current" {% endif %}><a href="{{ path('app_register') }}">Register</a></li>
+                        {% if app.user %}
+                            <li><a href="#">{{ app.user.username }}</a></li>
+                            <li><a href="{{ path('app_logout') }}">Logout</a></li>
+                        {% else %}
+                            <li {% if app.request.pathInfo == '/login' %} class="current" {% endif %}><a href="{{ path('app_login') }}">Login</a></li>
+                            <li {% if app.request.pathInfo == '/register' %} class="current" {% endif %}><a href="{{ path('app_register') }}">Register</a></li>
+                        {% endif %}
                     </ul>
                 </nav>
             </div>

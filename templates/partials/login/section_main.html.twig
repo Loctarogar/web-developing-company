@@ -1,12 +1,17 @@
 <section id="main">
     <div class="container">
         <div class="form">
-            <form>
+            <form method="post">
+                {% if error %}
+                    <div >{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
                 <!-- <label for="email">Email</label> -->
-                <input class="form-input" id="email" type="email" placeholder="Email"><br>
+                <input class="form-input" name="email" id="inputEmail" type="email" placeholder="Email"><br>
 
                 <!-- <label for="password1">Password</label> -->
-                <input class="form-input" id="password1" type="password" placeholder="Password"><br>
+                <input class="form-input" type="password" name="password" id="inputPassword" placeholder="Password"><br>
+
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
                 <button class="button_1" type="submit">Submit</button>
             </form>
