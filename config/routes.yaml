@@ -9,11 +9,3 @@ base_about:
 base_services:
   path: /services
   controller: App\Controller\BaseController::services
-
-base_login:
-  path: /login
-  controller: App\Controller\BaseController::login
-
-base_register:
-  path: /register
-  controller: App\Controller\BaseController::register
