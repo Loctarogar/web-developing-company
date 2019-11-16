@@ -27,8 +27,10 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="json")
+     *
+     * @var string[]
      */
-    private $roles = self::ROLE_USER;
+    private $roles = [];
 
     /**
      * @var string|null
@@ -128,13 +130,11 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
-    public function getRoles(): array
+    public function getRoles(): ?array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
 
-        return array_unique($roles);
+        return ($roles);
     }
 
     /**

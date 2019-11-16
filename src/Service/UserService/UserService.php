@@ -6,15 +6,17 @@ namespace App\Service\UserService;
 use App\Entity\User;
 use App\Form\Model\RegistrationFormModel;
 use App\Repository\UserRepository;
-use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserService
 {
     public $userRepository;
+    public $encoder;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserRepository $userRepository, UserPasswordEncoderInterface $passwordEncoder)
     {
         $this->userRepository = $userRepository;
+        $this->encoder = $passwordEncoder;
     }
 
     /**
@@ -24,9 +26,10 @@ class UserService
     {
         $user = new User();
         $user->setEmail($regUser->email);
-        $user->setPassword($regUser->password);
+        $user->setPassword($this->encoder->encodePassword($user, $regUser->password));
         $user->setFirstName($regUser->firstName);
         $user->setLastName($regUser->lastName);
+        $user->setRoles(['ROLE_USER']);
         $this->userRepository->persist($user);
         $this->userRepository->flush();
     }
