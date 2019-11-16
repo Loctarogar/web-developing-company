@@ -2,15 +2,36 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Form\Model\RegistrationFormModel;
+use App\Service\UserService\UserService;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use App\Form\Type\RegistrationFormModelType;
 
 class SecurityController extends AbstractController
 {
+    /**
+     * @var UserService
+     */
+    public $userService;
+
+    /**
+     * SecurityController constructor.
+     *
+     * {@inheritDoc}
+     *
+     * @param UserService $userService\
+     */
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
+
     /**
      * @param AuthenticationUtils $authenticationUtils
      *
@@ -31,13 +52,25 @@ class SecurityController extends AbstractController
     }
 
     /**
+     * @param Request $request
+     *
      * @return Response
      */
     public function register(Request $request)
     {
+        $user = new RegistrationFormModel();
+        $form = $this->createForm(RegistrationFormModelType::class, $user);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $user = $form->getData();
+            $this->userService->saveUser($user);
 
+            return $this->redirectToRoute('base_index');
+        }
 
-        return $this->render('security/register.html.twig');
+        return $this->render('security/register.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 
     /**
